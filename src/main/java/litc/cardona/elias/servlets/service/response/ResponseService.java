@@ -1,13 +1,13 @@
-package litc.cardona.elias.servlets.service;
+package litc.cardona.elias.servlets.service.response;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import com.google.gson.Gson;
-import litc.cardona.elias.servlets.entity.ResponseInterface;
+
+import litc.cardona.elias.servlets.entity.response.ResponseInterface;
 
 
 public class ResponseService {

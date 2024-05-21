@@ -1,4 +1,4 @@
-package litc.cardona.elias.servlets.entity;
+package litc.cardona.elias.servlets.entity.trip;
 
 import com.google.gson.annotations.SerializedName;
 

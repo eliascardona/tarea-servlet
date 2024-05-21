@@ -1,5 +1,10 @@
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\ComponentRequest.java
 C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\TripServlet.java
-C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\ResponseInterface.java
-C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\service\ResponseService.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\service\response\ResponseService.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\Component.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\ArtifactServlet.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\ArtifactDetails.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\service\artifact\ArtifactService.java
 C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\TripDetails.java
-C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\service\ArrivalService.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\entity\response\ResponseInterface.java
+C:\Users\elias\Desktop\tarea-servlet\src\main\java\litc\cardona\elias\servlets\service\arrival\ArrivalService.java

@@ -1,0 +1,41 @@
+.body {
+	font-family: Arial, 'sans-serif';
+}
+
+.card {
+	display:grid;
+	width:70%;
+	height:300px;
+	justify-self: center;
+	place-items: center;
+	gap: 1em;
+	padding:2rem;
+	border-radius:1em;
+	box-shadow: rgba(100, 100, 100, 0.3) 0px 1px 4px 0px;
+}
+
+.a {
+	font-size: 1.175em;
+	font-size: 1.175em;
+	text-decoration: none;
+}
+
+.input {
+	display: block;
+	margin: 1em;
+	padding: 5px 40px 5px 15px;
+	border: 0px;
+	border-style: none;
+	box-shadow: rgba(100, 100, 100, 0.3) 0px 1px 4px 0px;
+}
+
+label {
+	display: block;
+}
+
+small {
+	color: #ccc;
+	display: block;
+}
+
+

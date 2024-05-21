@@ -1,7 +1,8 @@
-package litc.cardona.elias.servlets.service;
+package litc.cardona.elias.servlets.service.arrival;
 
 import com.google.gson.Gson;
-import litc.cardona.elias.servlets.entity.TripDetails;
+
+import litc.cardona.elias.servlets.entity.trip.TripDetails;
 
 
 public class ArrivalService {
@@ -10,7 +11,6 @@ public class ArrivalService {
     private Integer departureMinutes;
 
     public ArrivalService() {}
-
 
     public boolean calculateArrival(String jsonPayload) {
         if (jsonPayload == null) {
@@ -25,11 +25,6 @@ public class ArrivalService {
                 float distanceV = parsedTripDetails.getDistance();
                 float speedV = parsedTripDetails.getSpeed();
                 String timeStr = parsedTripDetails.getInitialTime();
-
-                System.out.println("\n-----------------");
-                System.out.println(timeStr);
-                System.out.println(speedV);
-                System.out.println("-----------------\n");
 
 
                 // convert the resquest body from strings to numbers

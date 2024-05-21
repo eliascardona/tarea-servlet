@@ -1,36 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./static/assets/css/styles.css">
 	<title>Estimador de la hora de llegada de un vuelo</title>
 	<style>
-		.body {
-			font-family: Arial, 'sans-serif';
-		}
-		.card {
-			display:grid;
-			width: 70%;
-			height: 300px;
-			place-self:center;
-			place-items:center;
-			padding:2rem;
-			border-radius:1em;
-			box-shadow: rgba(100, 100, 100, 0.3) 0px 1px 4px 0px;
-		}
-		small {
-			color: #ccc;
-			display: block;
-		}
-		.input {
-			display: block;
-			margin: 1em;
-			padding: 5px 40px 5px 15px;
-			border: 0px;
-			border-style: none;
-			box-shadow: rgba(100, 100, 100, 0.3) 0px 1px 4px 0px;
-		}
+
 	</style>
 </head>
 <body class="body">
@@ -115,17 +93,16 @@
 
 			studentForm.addEventListener("submit", async (e) => {
 				e.preventDefault()
-				let respArr = await handleSubmit(e)
-
-				let jsonString = JSON.stringify(respArr)
+				let res = await handleSubmit(e)
+				let jsonString = JSON.stringify(res)
 
 				if(jsonString.length > 0) {
-					let responsePayload = JSON.parse(jsonString)
+					let load = JSON.parse(jsonString)
 
 					let arrivalTimeObj = {}
-					arrivalTimeObj = { ...responsePayload[0] }
+					arrivalTimeObj = { ...load[0] }
 
-					loadsHere.innerText = arrivalTimeObj.arrivalTime
+					loadsHere.innerText = arrivalTimeObj.responsePayload
 
 
 				} else {

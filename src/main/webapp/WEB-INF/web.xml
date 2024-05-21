@@ -13,6 +13,20 @@
 		<url-pattern>/tripServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>ArtifactServlet</servlet-name>
+		<servlet-class>litc.cardona.elias.servlets.ArtifactServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ArtifactServlet</servlet-name>
+		<url-pattern>/artifactServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
 </web-app>
 
 
