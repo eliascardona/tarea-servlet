@@ -10,7 +10,11 @@
 </head>
 <body class="body">
     <main style="display:grid;width:100%;">
-        <h3>Aniadir componente a un Artefacto</h3>
+        <h3>Aniadir componente a un artefacto</h3>
+        <div class="smCard">
+            <span>ponle nombre a tu artefacto</span>
+            <input type="text" id="art-name" placeholder="algo genial...">
+        </div>
         <div class="card">
             <form id="form">
                 <label for="cname">Nombre del Componente:</label>
@@ -22,24 +26,30 @@
                 <label for="cprice">Precio:</label>
                 <input type="number" id="cprice" name="cprice">
                 <br>
-                <button type="submit">Aniadir Componente</button>
+                <button type="submit" class="formBtn">Aniadir Componente</button>
             </form>
         </div>
+        <!-- button type="button" id="enviarBtn" class="formBtn" -->
+		<!-- enviar al server -->
+		<!-- /button -->
+        <div class="card">
+            <span id="nameHere">tu articulo...</span>
+            <span id="arayHere"></span>
 
-        <br>
-        <button type="button" id="enviarBtn" class="formBtn">
-			enviar al server
-		</button>
-        <br>
-        <button type="button" id="costoBtn" class="formBtn">
-            Obtener Costo Total
-		</button>
-        <p id="respHere"></p>
+            <button type="button" id="costoBtn" class="formBtn">
+                Preguntar al servidor por el costo total de nuestro articulo
+	    	</button>
+            <span id="respHere"></span>
+
+        </div>
     <main>
-
 
     <!-- JavaScript -->
     <script>
+        const artName = document.getElementById('art-name')
+        const nameHere = document.getElementById('nameHere')
+        const arrayHere = document.getElementById('arrayHere')
+
         const form = document.getElementById('form')
         const costoBtn = document.getElementById('costoBtn')
         const enviarBtnn = document.getElementById('enviarBtn')
@@ -60,12 +70,10 @@
             body: "json"
         }
 
-        // aniadir componente - funcion manejadora
+        /*
         function addComponent(compp) {
             componentsGlobal.push(compp)
         }
-
-        // aniadir componente - evento
         form.addEventListener('submit', (e) => {
             e.preventDefault()
             let comp = {
@@ -73,21 +81,25 @@
                 quantity: parseFloat(e.target.cqt.value),
                 price: parseFloat(e.target.cprice.value)
             }
-
             addComponent(comp)
-            console.log(componentsGlobal)
-        })
+        })*/
 
-        // servidor - funcion
-        async function sendComponent(componentsArr) {
+        // enviar un componente al servidor - funcion
+        async function sendComponent(evt) {
+            evt.preventDefault()
+            let comp = {
+                cname: evt.target.cname.value,
+                quantity: parseFloat(evt.target.cqt.value),
+                price: parseFloat(evt.target.cprice.value)
+            }
+            componentsGlobal.push(comp)
             let fetchOptions = {
                 ...baseOptionsPOST,
-                body: JSON.stringify(componentsArr)
+                body: JSON.stringify(comp)
             }
             try {
                 const r = await fetch('/CardonaRodriguezEliasLITC/artifactServlet', fetchOptions)
                 const j = await r.json()
-
                 let aux = [...j]
                 return aux
 
@@ -96,11 +108,11 @@
             }
         }
 
-        // enviar lista de componentes al servidor
-        enviarBtn.addEventListener('click', async (e) => {
-            e.preventDefault()
-            let respArr = await sendComponent(componentsGlobal)
-            respHere.innerText = respArr[0].responsePayload
+        // enviar un componente al servidor - manejo del evento
+        form.addEventListener('submit', async (e) => {
+            let respArr = await sendComponent(e)
+            respHere.innerText = "el mensaje del servidor es " + respArr[0].responsePayload + "."
+            console.log(componentsGlobal)
         })
 
 
@@ -109,7 +121,7 @@
             try{
                 const r = await fetch('/CardonaRodriguezEliasLITC/artifactServlet', baseOptionsGET)
                 const j = await r.json()
-                respHere.innerText = `El costo total de producir tu artefacto es de ${j.responsePayload} mxn`
+                respHere.innerText = "El costo total por producir tu artefacto es de " + j[0].responsePayload + "mxn"
             } catch(e) {
                 console.log("err on fetch", e)
             }
@@ -119,6 +131,19 @@
         costoBtn.addEventListener('click', async (e) => {
             e.preventDefault()
             await getTotalCost()
+        })
+
+        artName.addEventListener('change', (e) => {
+            nameHere.innerText = "es" + e.target.value + "."
+        })
+
+        componentsGlobal.map((el, i) => {
+            let spanEl = document.createElement("span")
+            spanEl.style.display = "grid"
+            spanEl.style.paddingBottom = "1rem"
+            spanEl.style.borderBottom = "1px solid #000"
+            spanEl.innerText = "nombre: " + el.cname + " cantidad: " + el.quantity + " precio: " + el.price + "."
+            arrayHere.appendChild(spanEl)
         })
 
     </script>

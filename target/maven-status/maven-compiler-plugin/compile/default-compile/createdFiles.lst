@@ -1,8 +1,6 @@
-litc\cardona\elias\servlets\entity\ComponentRequest.class
+litc\cardona\elias\servlets\service\artifact\ArtifactService.class
+litc\cardona\elias\servlets\entity\component\ComponentRequest.class
 litc\cardona\elias\servlets\ArtifactServlet.class
 litc\cardona\elias\servlets\service\arrival\ArrivalService.class
 litc\cardona\elias\servlets\entity\response\ResponseInterface.class
 litc\cardona\elias\servlets\service\response\ResponseService.class
-litc\cardona\elias\servlets\entity\Component.class
-litc\cardona\elias\servlets\service\artifact\ArtifactService.class
-litc\cardona\elias\servlets\entity\ArtifactDetails.class
